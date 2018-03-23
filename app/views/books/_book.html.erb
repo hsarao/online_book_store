@@ -1,0 +1,16 @@
+<style>
+  .style{
+    float: left;
+  }
+</style>
+<%= div_for(book, :class => "style") do %>
+  <h3><%= book.name %><br></h3>
+  <!--
+  #%= image_tag(book.image)%><br><br>
+  <!--<img src="/assets/#%=book.image%>">-->
+  <%= book.author %><br><br>
+  <%= book.rating %><br><br>
+<% end %>
+
+
+

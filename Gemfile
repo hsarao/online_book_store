@@ -12,6 +12,7 @@ gem 'rails', '~> 5.1.5'
 gem 'sqlite3'
 gem 'activeadmin'
 gem 'devise'
+gem 'record_tag_helper'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
