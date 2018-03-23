@@ -2,4 +2,6 @@
 
 <%= render partial: @books,
            locals: {show_details_link: true}%>
+<%= paginate @books %>
+<%= page_entries_info @books %>
 
