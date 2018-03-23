@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  # get 'books', to: 'books#index'
+  # get 'books/:id', to: 'books#show'
+  #
+  resources :books, only: [:index, :show]
+
   root :to => 'books#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
