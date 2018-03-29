@@ -15,6 +15,7 @@ gem 'devise'
 gem 'record_tag_helper'
 gem 'kaminari'
 gem 'bootstrap'
+gem 'carrierwave'
 gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
