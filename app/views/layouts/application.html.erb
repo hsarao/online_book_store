@@ -18,14 +18,7 @@
   </head>
 
   <body>
-  <div class="container">
-    <h1><img src=/assets/32.png height="100" alt="Image">Serie A 2015/16</h1>
-    <%= form_tag(search_path, method: "get") do %>
-      <%= label_tag(:q, "Search for:") %>
-      <%= text_field_tag(:q) %>
-      <%= submit_tag("Search") %>
-    <% end %>
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="http://localhost:3000/books">Read Online Book Store</a>
 
@@ -42,6 +35,12 @@
           <a class="nav-link" href="http://localhost:3000/books">Books</a>
         </li>
       </ul>
+
+      <%= form_tag(search_path, method: "get") do %>
+        <%= label_tag(:q) %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>
     </div>
   </nav>
   <%= yield %>
