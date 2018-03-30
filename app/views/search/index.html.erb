@@ -1,13 +1,20 @@
 <h1>Search Results</h1>
-<% if(@books_result.size == 0) %>
-  <h2>No Book exists for search "<%= @search_terms %>"</h2>
-<% else %>
-  <h2> Your search for the book "<%= @search_terms %>" returned <%= pluralize(@books_result.size, 'result') %>.</h2>
-  <!--<ul class="list-group">-->
-    <!--<% @books_result.each do |t| %>-->
-      <!--<li class="list-group-item list-group-item-dark"><%= t.name %></li>-->
-    <!--<% end %>-->
-  <!--</ul>-->
-  <%= render partial: @books_result,
-             locals: {show_details_link: true}%>
+
+  <% if(@category) %>
+  <% if(@books_result.size == 0) %>
+    <h2>No Book exists for category "<%= @search_terms %>"</h2>
+  <% else %>
+    <h2> Your search for Books in category "<%= @search_terms %>" returned <%= pluralize(@books_result.size, 'result') %>.</h2>
+    <%= render partial: @books_result,
+               locals: {show_details_link: true}%>
+  <% end %>
+    <% else %>
+  <% if(@books_result.size == 0) %>
+    <h2>No Book exists by the name "<%= @search_terms %>"</h2>
+  <% else %>
+    <h2> Your search for the book "<%= @search_terms %>" returned <%= pluralize(@books_result.size, 'result') %>.</h2>
+    <%= render partial: @books_result,
+               locals: {show_details_link: true}%>
+  <% end %>
+
 <% end %>

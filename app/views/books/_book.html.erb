@@ -17,7 +17,7 @@
   <%= image_tag(book.image, style:'height:200px;width:150px;align:center')%><br><br>
   <strong><p>Author: <%= book.author %></p></strong>
   <strong><p>Rating: <%= book.rating %></p></strong>
-  <p><%= book.genre_id %></p>
+  <p><%= book.genre.name %></p>
   <% if show_details_link %>
   <p><%= link_to 'View Details', book %></p>
     <% end %>

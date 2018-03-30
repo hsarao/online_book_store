@@ -38,16 +38,12 @@
     </div>
     </nav>
       <%= form_tag(search_path, method: "get") do %>
-        <%= text_field_tag(:q, 'Search Books by name...') %>
+        <%= text_field_tag(:q, params[:q]) %>
     <%= submit_tag("Search by name") %>
-  <%= submit_tag('Category Search', :name => 'category') %>
+  <%= submit_tag('Search by Category', :name => 'category') %>
 
       <% end %>
-      <form id="myForm">
-        <select id="selectNumber">
-          <option>Choose a number</option>
-        </select>
-      </form>
+
   <%= yield %>
   </body>
 </html>
