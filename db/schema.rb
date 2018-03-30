@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323190811) do
+ActiveRecord::Schema.define(version: 20180330173642) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20180323190811) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "book_genres", force: :cascade do |t|
+    t.integer "Book_id"
+    t.integer "Genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["Book_id"], name: "index_book_genres_on_Book_id"
+    t.index ["Genre_id"], name: "index_book_genres_on_Genre_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "name"
     t.string "author"
@@ -58,6 +67,21 @@ ActiveRecord::Schema.define(version: 20180323190811) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "search2s", force: :cascade do |t|
+    t.string "name"
+    t.integer "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "name"
+    t.string "genre"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

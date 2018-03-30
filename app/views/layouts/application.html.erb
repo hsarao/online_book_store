@@ -39,7 +39,8 @@
     </nav>
       <%= form_tag(search_path, method: "get") do %>
         <%= text_field_tag(:q, 'Search Books by name...') %>
-        <%= submit_tag("Search") %>
+    <%= submit_tag("Search by name") %>
+  <%= submit_tag('Category Search', :name => 'category') %>
 
       <% end %>
       <form id="myForm">
