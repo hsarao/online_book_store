@@ -11,5 +11,15 @@ ActiveAdmin.register Book do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-permit_params :name, :author, :publisher, :date, :image, :rating, :genre_id
+permit_params :name, :author, :publisher, :date, :image, :rating, :genre_id, book_genres:[:id, :book_id, :genre_id, :_destroy]
+
+form do |f|
+  f.semantic_errors *f.object.errors.keys
+  f.inputs "Book" do
+    f.input :name
+    f.input :author
+
+  end
+  f.actions
+end
 end
