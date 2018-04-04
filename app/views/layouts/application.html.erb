@@ -12,25 +12,35 @@
         .navbar{
           margin-bottom: 20px;
         }
-      </style>
+
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 2px solid #4CAF50;
+}
+</style>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 <%= render partial: 'shared/header_menu' %>
-<h2>Items in Cart</h2>
+<%= yield %>
+<h2 style="align-content: right">Items in Cart</h2>
 <% if @books_in_cart && @books_in_cart.empty? %>
-  <div id="in_cart"></div>
-<p class="empty_cart">Above The cart is empty</p>
+    <div id="in_cart"></div>
+    <p class="empty_cart">Above The cart is empty</p>
     <p id="clear_cart" class="d-none"><%= link_to 'Empty cart', clear_cart_books_path, remote: true, method: :post %></p>
 
   <% else %>
     <div id="in_cart">    <%= render partial: 'books/tiny_book', collection:  @books_in_cart%>  <% end %>
   </div>
   <p id="empty_cart" class="d-none">Below The cart is empty</p>
-<p id="clear_cart"><%= link_to 'Empty cart', clear_cart_books_path, remote: true, method: :post %></p>
-  <%= yield %>
+  <p id="clear_cart"><%= link_to 'Empty cart', clear_cart_books_path, remote: true, method: :post %></p>
+
   </body>
 </html>
 
