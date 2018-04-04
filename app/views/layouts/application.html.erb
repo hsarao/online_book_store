@@ -21,9 +21,12 @@
 <%= render partial: 'shared/header_menu' %>
 <h2>Items in Cart</h2>
 <% if @books_in_cart && @books_in_cart.empty? %>
+  <div id="in_cart"></div>
 <p>The cart is empty</p>
 <% else %>
-    <%= render partial: 'books/tiny_book', collection:  @books_in_cart %>  <% end %>
+    <div id="in_cart">    <%= render partial: 'books/tiny_book', collection:  @books_in_cart%>  <% end %>
+  </div>
+
 <p><%= link_to 'Empty cart', clear_cart_books_path, method: :post %></p>
   <%= yield %>
   </body>

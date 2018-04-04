@@ -21,7 +21,7 @@ class BooksController < ApplicationController
 
     unless session[:to_cart].include?(id)
       session[:to_cart] << id
-      redirect_to books_path
+      # redirect_to books_path
     end
   end
 
