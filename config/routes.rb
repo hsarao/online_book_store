@@ -7,7 +7,15 @@ Rails.application.routes.draw do
   # get 'books', to: 'books#index'
   # get 'books/:id', to: 'books#show'
   #
-  resources :books, only: [:index, :show]
+  resources :books, only: [:index, :show] do
+    collection do
+      post :clear_cart
+    end
+    member do
+      post :add_to_cart
+      post :mark_as_added
+    end
+  end
 
   root :to => 'about#index'
   devise_for :admin_users, ActiveAdmin::Devise.config

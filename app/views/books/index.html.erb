@@ -2,7 +2,7 @@
            locals: {show_details_link: true}%>
 <ul class="pagination justify-content-end">
   <%= paginate @books %>
-
+  <p> You have visited the page <%= pluralize(@visit_count, 'time')%>.</p>
 </ul>
 
 <!--  -->

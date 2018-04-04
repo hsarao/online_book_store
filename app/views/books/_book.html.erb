@@ -20,7 +20,13 @@
   <p><%= book.genre.name %></p>
   <% if show_details_link %>
   <p><%= link_to 'View Details', book %></p>
-    <% end %>
+    <% if session[:to_cart].include?(book.id) %>
+      <p><%= link_to 'Remove Book', mark_as_added_book_path(book), method: :post %></p>
+      <% else %>
+      <p><%= link_to 'Add to cart', add_to_cart_book_path(book), remote: true, method: :post %></p>
+      <% end %>
+
+  <% end %>
 <% end %>
 
 
