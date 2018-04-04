@@ -1,1 +1,6 @@
-alert('whatt')
+var in_cart = document.querySelector('#in_cart')
+var empty_cart = document.querySelector('#empty_cart')
+var clear_cart = document.querySelector('#clear_cart')
+
+
+in_cart.innerHTML = "<%= j render partial: 'books/tiny_book', collection: @books_in_cart %>"

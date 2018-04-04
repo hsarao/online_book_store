@@ -22,12 +22,14 @@
 <h2>Items in Cart</h2>
 <% if @books_in_cart && @books_in_cart.empty? %>
   <div id="in_cart"></div>
-<p>The cart is empty</p>
-<% else %>
+<p class="empty_cart">Above The cart is empty</p>
+    <p id="clear_cart" class="d-none"><%= link_to 'Empty cart', clear_cart_books_path, remote: true, method: :post %></p>
+
+  <% else %>
     <div id="in_cart">    <%= render partial: 'books/tiny_book', collection:  @books_in_cart%>  <% end %>
   </div>
-
-<p><%= link_to 'Empty cart', clear_cart_books_path, method: :post %></p>
+  <p id="empty_cart" class="d-none">Below The cart is empty</p>
+<p id="clear_cart"><%= link_to 'Empty cart', clear_cart_books_path, remote: true, method: :post %></p>
   <%= yield %>
   </body>
 </html>

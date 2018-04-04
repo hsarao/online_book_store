@@ -13,8 +13,9 @@ class BooksController < ApplicationController
   end
 
   def clear_cart
-    session[:to_cart] = nil
-    redirect_to books_path
+    session[:to_cart] = []
+    load_books_in_cart
+    render :add_to_cart
   end
   def add_to_cart
     id = params[:id].to_i
@@ -23,12 +24,16 @@ class BooksController < ApplicationController
       session[:to_cart] << id
       # redirect_to books_path
     end
+
+    load_books_in_cart
+    render :add_to_cart
   end
 
   def mark_as_added
     id = params[:id].to_i
     session[:to_cart].delete(id)
-    redirect_to books_path
+    load_books_in_cart
+    render :add_to_cart
   end
 
   private

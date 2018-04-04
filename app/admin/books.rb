@@ -13,13 +13,17 @@ ActiveAdmin.register Book do
 # end
 permit_params :name, :author, :publisher, :date, :image, :rating, :genre_id, book_genres:[:id, :book_id, :genre_id, :_destroy]
 
-form do |f|
-  f.semantic_errors *f.object.errors.keys
-  f.inputs "Book" do
-    f.input :name
-    f.input :author
-
-  end
-  f.actions
-end
+# form do |f|
+#   f.semantic_errors *f.object.errors.keys
+#   f.inputs "Book" do
+#     f.input :name
+#     f.input :author
+#     f.input :publisher
+#     f.input :date
+#     f.input :image
+#     f.input :genre_id
+#
+#   end
+#   f.actions
+# end
 end
