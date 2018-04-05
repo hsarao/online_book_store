@@ -14,9 +14,8 @@
 
   <div class="sticky">
     <nav class="nav nav-pills nav-fill">
-      <a class="nav-item nav-link" href="http://localhost:3000/search">Genres:</a>
           <% @genres.each do |g| %>
-        <a class="nav-item nav-link" href="http://localhost:3000/search"><b><%= g.name%>&nbsp;</b></a>
+        <a class="nav-item nav-link" href="http://localhost:3000/search?utf8=✓&q=<%=g.name%>&category=Search+by+Category"><b><%= g.name%>&nbsp;</b></a>
       <% end %>
     </nav>
   </div>

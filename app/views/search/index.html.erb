@@ -1,10 +1,17 @@
+<div class="sticky">
+  <nav class="nav nav-pills nav-fill">
+    <% @searchGenres.each do |g| %>
+      <a class="nav-item nav-link" href="http://localhost:3000/search?utf8=✓&q=<%=g.name%>&category=Search+by+Category"><b><%= g.name%>&nbsp;</b></a>
+    <% end %>
+  </nav>
+</div>
 <h1>Search Results</h1>
 
   <% if(@category) %>
   <% if(@books_result.size == 0) %>
-    <h2>No Book exists for category "<%= @search_terms %>"</h2>
+    <h2>No Book exists for category <strong><%= @search_terms %></strong></h2>
   <% else %>
-    <h2> Your search for Books in category "<%= @search_terms %>" returned <%= pluralize(@books_result.size, 'result') %>.</h2>
+    <h2>Books in category <strong><%= @search_terms %></strong>.</h2>
     <%= render partial: @books_result,
                locals: {show_details_link: true}%>
   <% end %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'advanced_search/index'
+
   get 'search', to: 'search#index', as:'search'
 
   get 'about', to: 'about#index', as: 'about'

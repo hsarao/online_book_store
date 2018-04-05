@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   before_action :increment_visit_count, except: [:show]
   before_action :load_books_in_cart
   def index
+
     @books = Book.all.page(params[:page]).per(3)
     @genres = Genre.all
     @visit_count = session[:visit_count]

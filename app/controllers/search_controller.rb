@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
+    @searchGenres = Genre.all;
     @search_terms = params[:q]
     @category = params[:category]
     @commit = params[:commit]
