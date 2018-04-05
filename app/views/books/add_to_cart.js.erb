@@ -2,5 +2,12 @@ var in_cart = document.querySelector('#in_cart')
 var empty_cart = document.querySelector('#empty_cart')
 var clear_cart = document.querySelector('#clear_cart')
 
+<% if @books_in_cart.empty? %>
+empty_cart.classList.remove("d-none")
+clear_cart.classList.add("d-none")
+<% else %>
+empty_cart.classList.add("d-none")
+clear_cart.classList.remove("d-none")
+<% end %>
 
 in_cart.innerHTML = "<%= j render partial: 'books/tiny_book', collection: @books_in_cart %>"

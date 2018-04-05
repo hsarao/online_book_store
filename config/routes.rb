@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'about', to: 'about#index', as: 'about'
 
   # get 'books', to: 'books#index'
-  # get 'books/:id', to: 'books#show'
+  #  get 'books/:cat', to: 'books#category'
   #
   resources :books, only: [:index, :show] do
     collection do

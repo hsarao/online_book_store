@@ -1,10 +1,9 @@
 <style>
   .style{
-    float: left;
-    border-style: ridge;
+    border-bottom: ridge;
     padding-left: 5px;
     margin-left: 10px;
-
+    float: bottom;
   }
   h3{
     padding-top: 9px;
@@ -12,11 +11,8 @@
 
 </style>
 
-<%= div_for(tiny_book, :class => "style" ) do %>
-  <h3><%= tiny_book.name %><br></h3>
-  <strong><p>Author: <%= tiny_book.author %></p></strong>
-  <strong><p>Rating: <%= tiny_book.rating %></p></strong>
-  <p>Genre: <%= tiny_book.genre.name %></p>
-    <p><%= link_to 'View Details', tiny_book %></p>
-      <p><%= link_to 'Remove Book', mark_as_added_book_path(tiny_book), remote: true, method: :post %></p>
-<% end %><br>
+<%= div_for(tiny_book, :class => "style") do %>
+  <h6><%= tiny_book.name %><br></h6>
+  <p>Author: <%= tiny_book.author %></p>
+      <%= link_to 'Remove Book', mark_as_added_book_path(tiny_book), remote: true, method: :post %>
+<% end %>
