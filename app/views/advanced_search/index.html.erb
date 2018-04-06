@@ -4,9 +4,8 @@
     position: sticky;
     top: 10px;
     padding: 10px;
-    margin-top: 10px
+    margin-top: 10px;
     margin-bottom: 10px;
-
     background-color: white;
     border: 3px solid black;
   }
@@ -19,28 +18,16 @@
     <% end %>
   </nav>
 </div>
-<h1>Search Results</h1>
 <%= form_tag(advanced_search_path, method: "get") do %>
-  <%= label_tag("Advanced Search") %>
   <%= text_field_tag(:p, params[:p]) %>
-  <%= hidden_field_tag(:a, @search_terms) %>
+  <%= hidden_field_tag(:a, @genre_terms) %>
   <%= submit_tag("Search") %>
 <% end %>
-  <% if(@category) %>
-  <% if(@books_result.size == 0) %>
-    <h2>No Book exists for category <strong><%= @search_terms %></strong></h2>
-  <% else %>
-    <h2>Books in category <strong><%= @search_terms %></strong>.</h2>
-    <%= render partial: @books_result,
-               locals: {show_details_link: true}%>
-  <% end %>
-    <% else %>
-  <% if(@books_result.size == 0) %>
-    <h2>No Book exists by the name "<%= @search_terms %>"</h2>
-  <% else %>
-    <h2> Your search for the book "<%= @search_terms %>" returned <%= pluralize(@books_result.size, 'result') %>.</h2>
-    <%= render partial: @books_result,
-               locals: {show_details_link: true}%>
-  <% end %>
 
-<% end %>
+  <% if(@books.size == 0) %>
+    <h2>No Book exists by the name <strong><%= @search_terms %></strong> for category <strong><%= @genre_terms %></strong></h2>
+  <% else %>
+    <h2>Books by the name <strong><%= @search_terms %></strong> in category <%= @genre_terms %>.</h2>
+    <%= render partial: @books,
+               locals: {show_details_link: true}%>
+  <% end %>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'advanced_search/index'
+  get 'advanced_search', to: 'advanced_search#index', as: 'advanced_search'
 
   get 'search', to: 'search#index', as:'search'
 

@@ -9,7 +9,11 @@
     border: 3px solid black;
   }
 </style>
-
+<%= form_tag(search_path, method: "get") do %>
+  <%= text_field_tag(:q, params[:q]) %>
+  <%= submit_tag("Search by name") %>
+  <%= submit_tag('Search by Category', :name => 'category') %>
+<% end %>
 <div class="dropdown">
 
   <div class="sticky">

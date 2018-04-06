@@ -20,8 +20,4 @@
     </ul>
   </div>
 </nav>
-<%= form_tag(search_path, method: "get") do %>
-  <%= text_field_tag(:q, params[:q]) %>
-  <%= submit_tag("Search by name") %>
-  <%= submit_tag('Search by Category', :name => 'category') %>
-<% end %>
+
