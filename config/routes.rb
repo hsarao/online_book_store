@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-
   get 'advanced_search', to: 'advanced_search#index', as: 'advanced_search'
 
   get 'search', to: 'search#index', as:'search'
+  get 'sale', to: 'sale#index', as:'sale'
 
   get 'about', to: 'about#index', as: 'about'
+  get 'cart', to: 'cart#index', as:'cart'
 
   # get 'books', to: 'books#index'
   #  get 'books/:cat', to: 'books#category'

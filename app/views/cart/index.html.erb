@@ -1,0 +1,12 @@
+<h2 style="align-content: right">Items in Cart</h2>
+<% if @books_in_cart && @books_in_cart.empty? %>
+  <div id="in_cart"></div>
+  <p id="empty_cart">Above The cart is empty</p>
+  <p id="clear_cart" class="d-none"><%= link_to 'Empty cart', clear_cart_books_path, remote: true, method: :post %></p>
+
+<% else %>
+  <p id="clear_cart"><%= link_to 'Empty cart', clear_cart_books_path, remote: true, method: :post %></p>
+  <div id="in_cart">    <%= render partial: 'books/tiny_book', collection:  @books_in_cart%>
+  </div>
+  <p id="empty_cart" class="d-none">Below The cart is empty</p>
+<% end %>

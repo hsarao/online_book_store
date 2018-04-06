@@ -15,8 +15,21 @@
         <a class="nav-link" href="http://localhost:3000/books">Books</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/books"><img src=/assets/cart.png height="30" width="30" alt="image"></a>
+        <a class="nav-link" href="http://localhost:3000/sale?utf8=✓&q=sale">Sale</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/sale?utf8=✓&q=sale&new=true">New</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/cart"><img src=/assets/cart.png height="30" width="30" alt="image"></a>
+      </li>
+
+      <% if @items_in_cart == 0 %>
+      <li class="nav-item" style="color: #BBBBBB; padding-top: 8px">Cart is empty</li>
+      <% else %>
+        <li style="color: #BBBBBB; padding-top: 8px" class="nav-item" id="items">
+          <%= @items_in_cart %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
